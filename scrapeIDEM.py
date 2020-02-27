@@ -30,7 +30,6 @@ search = driver.find_element_by_id('sch_button')
 search.click()
 page = 1
 maxPage = 40
-pages = []
 lastPage = 1000
 
 def scrapeTable() :
@@ -43,6 +42,7 @@ def scrapeTable() :
                 print('nothing')
                 continue
             result.append(cell.text)
+    global pages
     pages = next(reversed(result))
     result = list(filter(('').__ne__, result))
     result.pop()
